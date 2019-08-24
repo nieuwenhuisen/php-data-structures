@@ -1,0 +1,8 @@
+includes:
+	- vendor/phpstan/phpstan-phpunit/extension.neon
+
+parameters:
+    reportUnmatchedIgnoredErrors: false
+
+    autoload_files:
+        - vendor/autoload.php
