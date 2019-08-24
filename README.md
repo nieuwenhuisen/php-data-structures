@@ -1,5 +1,7 @@
 # PHP Data structures
 
+Some example and test code for PHP data structures.
+
 ### Code checks commands
 ```
 $ ./vendor/bin/phpunit
