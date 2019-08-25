@@ -44,6 +44,6 @@ class LinkedListIterator implements Iterator
     public function rewind(): void
     {
         $this->currentPosition = 0;
-        $this->currentNode = $this->linkList[0];
+        $this->currentNode = $this->linkList->getLinkNode(0);
     }
 }

@@ -2,10 +2,9 @@
 
 namespace App\LinkedList;
 
-use ArrayAccess;
 use Countable;
 
-class LinkedList implements Countable, ArrayAccess
+class LinkedList implements Countable
 {
     /** @var ListNode|null */
     private $firstNode;
@@ -38,6 +37,16 @@ class LinkedList implements Countable, ArrayAccess
 
     public function getLinkNode(int $index = 0): ?ListNode
     {
+        $currentIndex = 0;
+        $currentNode = $this->firstNode;
+
+        while ($currentNode) {
+            if ($currentIndex === $index) {
+                return $currentNode;
+            }
+            ++$currentIndex;
+            $currentNode = $currentNode->next;
+        }
     }
 
     public function toArray()
@@ -99,35 +108,6 @@ class LinkedList implements Countable, ArrayAccess
     public function count(): int
     {
         return $this->totalNodes;
-    }
-
-    public function offsetExists($offset)
-    {
-        return $offset < $this->totalNodes;
-    }
-
-    public function offsetGet($offset)
-    {
-        $currentIndex = 0;
-        $currentNode = $this->firstNode;
-
-        while ($currentNode) {
-            if ($currentIndex === $offset) {
-                return $currentNode;
-            }
-            ++$currentIndex;
-            $currentNode = $currentNode->next;
-        }
-    }
-
-    public function offsetSet($offset, $value)
-    {
-        // TODO: Implement offsetSet() method.
-    }
-
-    public function offsetUnset($offset)
-    {
-        // TODO: Implement offsetUnset() method.
     }
 
     public function getIterator()

@@ -3,7 +3,6 @@
 namespace App\Tests\LinkedList;
 
 use App\LinkedList\LinkedList;
-use App\LinkedList\LinkedListIterator;
 use App\LinkedList\ListNode;
 use PHPUnit\Framework\TestCase;
 
@@ -32,7 +31,7 @@ class LinkedListTest extends TestCase
     public function testGetNode(): void
     {
         $this->insertLinkNodes(3);
-        $secondNode = $this->linkedList[1];
+        $secondNode = $this->linkedList->getLinkNode(1);
 
         $this->assertSame($secondNode->data, 'Item 2');
     }
@@ -90,10 +89,9 @@ class LinkedListTest extends TestCase
         }
     }
 
-    public function testIterator()
+    public function testIterator(): void
     {
         $this->insertLinkNodes(3);
-
 
         /** @var ListNode $linkNode */
         foreach ($this->linkedList->getIterator() as $linkNode) {
