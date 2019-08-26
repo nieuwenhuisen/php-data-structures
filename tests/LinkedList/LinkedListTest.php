@@ -28,6 +28,25 @@ class LinkedListTest extends TestCase
         $this->assertCount(3, $this->linkedList);
     }
 
+    public function testInsertAtFirst(): void
+    {
+        $this->insertLinkNodes(3);
+        $this->linkedList->insertAtFirst('First item');
+
+        $firstNode = $this->linkedList->getLinkNode(0);
+        $this->assertSame('First item', $firstNode->data);
+    }
+
+    public function testDelete(): void
+    {
+        $this->insertLinkNodes(3);
+        $this->linkedList->delete('Item 2');
+        $this->assertCount(2, $this->linkedList);
+
+        $secondNode = $this->linkedList->getLinkNode(1);
+        $this->assertSame('Item 3', $secondNode->data);
+    }
+
     public function testGetNode(): void
     {
         $this->insertLinkNodes(3);
@@ -74,8 +93,6 @@ class LinkedListTest extends TestCase
 
     /**
      * @dataProvider searchDataProvider
-     * @param mixed $query
-     * @param mixed $expected
      */
     public function testSearch($query, $expected): void
     {

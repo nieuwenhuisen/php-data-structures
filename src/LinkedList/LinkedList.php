@@ -13,7 +13,17 @@ class LinkedList implements Countable
     /** @var int */
     private $totalNodes = 0;
 
-    public function insert($data = null): void
+    public function insert($data): void
+    {
+        $this->insertAt($data);
+    }
+
+    public function insertAtFirst($data): void
+    {
+        $this->insertAt($data, 0);
+    }
+
+    private function insertAt($data, $index = false): void
     {
         $node = new ListNode($data);
         ++$this->totalNodes;
@@ -26,10 +36,18 @@ class LinkedList implements Countable
 
         $currentNode = $this->firstNode;
 
+        if (0 === $index) {
+            $node->next = $currentNode;
+            $this->firstNode = $node;
+
+            return;
+        }
+
         while ($currentNode) {
             if (!$currentNode->next) {
                 $currentNode->next = $node;
-                break;
+
+                return;
             }
 
             $currentNode = $currentNode->next;
@@ -104,6 +122,33 @@ class LinkedList implements Countable
         }
 
         return null;
+    }
+
+    public function delete($query): void
+    {
+        if (!$this->firstNode) {
+            return;
+        }
+
+        $previous = $this->firstNode;
+        $currentNode = $this->firstNode;
+
+        while ($currentNode) {
+            if ($currentNode->data === $query) {
+                if (!$currentNode->next) {
+                    $previous->next = null;
+                } else {
+                    $previous->next = $currentNode->next;
+                }
+
+                --$this->totalNodes;
+
+                return;
+            }
+
+            $previous = $currentNode;
+            $currentNode = $currentNode->next;
+        }
     }
 
     public function count(): int
