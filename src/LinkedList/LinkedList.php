@@ -3,6 +3,7 @@
 namespace App\LinkedList;
 
 use Countable;
+use Iterator;
 
 class LinkedList implements Countable
 {
@@ -49,7 +50,7 @@ class LinkedList implements Countable
         }
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         $output = [];
 
@@ -67,7 +68,7 @@ class LinkedList implements Countable
         return $output;
     }
 
-    public function reverse()
+    public function reverse(): void
     {
         if (!$this->firstNode || !$this->firstNode->next) {
             return;
@@ -110,7 +111,7 @@ class LinkedList implements Countable
         return $this->totalNodes;
     }
 
-    public function getIterator()
+    public function getIterator(): Iterator
     {
         return new LinkedListIterator($this);
     }

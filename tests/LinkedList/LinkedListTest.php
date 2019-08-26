@@ -74,6 +74,8 @@ class LinkedListTest extends TestCase
 
     /**
      * @dataProvider searchDataProvider
+     * @param mixed $query
+     * @param mixed $expected
      */
     public function testSearch($query, $expected): void
     {
