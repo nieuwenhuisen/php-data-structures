@@ -5,12 +5,16 @@ namespace App\Stack;
 use Countable;
 use OverflowException;
 use UnderflowException;
+use function count;
 
 class ArrayStack implements StackInterface, Countable
 {
     private $limit;
     private $stack;
 
+    /**
+     * @param int $limit The limit of the stack, use 0 for unlimited
+     */
     public function __construct(int $limit = 20)
     {
         $this->limit = $limit;
@@ -19,7 +23,7 @@ class ArrayStack implements StackInterface, Countable
 
     public function push($item): void
     {
-        if (\count($this->stack) >= $this->limit) {
+        if ($this->limit > 0 && count($this->stack) >= $this->limit) {
             throw new OverflowException('Stack limit reached');
         }
 
@@ -42,7 +46,7 @@ class ArrayStack implements StackInterface, Countable
 
     public function count(): int
     {
-        return \count($this->stack);
+        return count($this->stack);
     }
 
     public function isEmpty(): bool

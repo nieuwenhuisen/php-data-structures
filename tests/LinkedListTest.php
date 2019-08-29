@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\LinkedList;
+namespace App\Tests;
 
 use App\LinkedList\LinkedList;
 use App\LinkedList\ListNode;

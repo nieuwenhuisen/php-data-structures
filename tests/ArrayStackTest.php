@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Stack;
+namespace App\Tests;
 
 use App\Stack\ArrayStack;
 use OverflowException;
