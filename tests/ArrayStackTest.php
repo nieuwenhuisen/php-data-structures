@@ -36,18 +36,18 @@ class ArrayStackTest extends TestCase
         $this->arrayStack->push('Item 2');
         $this->arrayStack->push('Item 3');
 
-        $book3 = $this->arrayStack->pop();
-        $book2 = $this->arrayStack->pop();
+        $item3 = $this->arrayStack->pop();
+        $item2 = $this->arrayStack->pop();
 
         $this->assertCount(1, $this->arrayStack);
-        $this->assertSame('Item 3', $book3);
-        $this->assertSame('Item 2', $book2);
+        $this->assertSame('Item 3', $item3);
+        $this->assertSame('Item 2', $item2);
 
-        $book1 = $this->arrayStack->pop();
+        $item1 = $this->arrayStack->pop();
 
         $this->assertCount(0, $this->arrayStack);
         $this->assertTrue($this->arrayStack->isEmpty());
-        $this->assertSame('Item 1', $book1);
+        $this->assertSame('Item 1', $item1);
     }
 
     public function testStackPeek(): void

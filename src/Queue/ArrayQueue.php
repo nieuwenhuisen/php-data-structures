@@ -3,6 +3,8 @@
 namespace App\Queue;
 
 use Countable;
+use OverflowException;
+use UnderflowException;
 
 class ArrayQueue implements QueueInterface, Countable
 {
@@ -20,17 +22,28 @@ class ArrayQueue implements QueueInterface, Countable
 
     public function enqueue($item): void
     {
+        if ($this->limit > 0 && count($this->queue) >= $this->limit) {
+            throw new OverflowException('Queue limit reached');
+        }
 
+        $this->queue[] = $item;
     }
 
+    /**
+     * @return mixed
+     */
     public function dequeue()
     {
+        if ($this->isEmpty()) {
+            throw new UnderflowException('Queue is empty');
+        }
 
+        return array_shift($this->queue);
     }
 
     public function peek()
     {
-
+        return current($this->queue);
     }
 
     public function count()
