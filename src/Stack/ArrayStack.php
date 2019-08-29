@@ -51,6 +51,6 @@ class ArrayStack implements StackInterface, Countable
 
     public function isEmpty(): bool
     {
-        return 0 === $this->count();
+        return empty($this->stack);
     }
 }
