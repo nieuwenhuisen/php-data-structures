@@ -13,4 +13,27 @@ class CircularLinkedListTest extends TestCase
     {
         $this->linkedList = new CircularLinkedList();
     }
+
+    public function testInsertAtEnd(): void
+    {
+        $result = $this->linkedList->insert('Item 1');
+
+        $this->assertTrue($result);
+        $this->assertCount(1, $this->linkedList);
+    }
+
+    public function testToArray(): void
+    {
+        $this->linkedList->insert('Item 1');
+        $this->linkedList->insert('Item 2');
+        $this->linkedList->insert('Item 3');
+
+        $array = $this->linkedList->toArray();
+
+        $this->assertSame($array, [
+            'Item 1',
+            'Item 2',
+            'Item 3',
+        ]);
+    }
 }
