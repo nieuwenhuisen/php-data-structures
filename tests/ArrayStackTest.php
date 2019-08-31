@@ -9,79 +9,79 @@ use UnderflowException;
 
 class ArrayStackTest extends TestCase
 {
-    private $arrayStack;
+    private $stack;
 
     public function setUp(): void
     {
-        $this->arrayStack = new ArrayStack(5);
+        $this->stack = new ArrayStack(5);
     }
 
     public function testStackIsEmpty(): void
     {
-        $this->assertTrue($this->arrayStack->isEmpty());
+        $this->assertTrue($this->stack->isEmpty());
     }
 
     public function testStackPush(): void
     {
-        $this->arrayStack->push('Item 1');
-        $this->arrayStack->push('Item 2');
-        $this->arrayStack->push('Item 3');
+        $this->stack->push('Item 1');
+        $this->stack->push('Item 2');
+        $this->stack->push('Item 3');
 
-        $this->assertCount(3, $this->arrayStack);
+        $this->assertCount(3, $this->stack);
     }
 
     public function testStackPop(): void
     {
-        $this->arrayStack->push('Item 1');
-        $this->arrayStack->push('Item 2');
-        $this->arrayStack->push('Item 3');
+        $this->stack->push('Item 1');
+        $this->stack->push('Item 2');
+        $this->stack->push('Item 3');
 
-        $item3 = $this->arrayStack->pop();
-        $item2 = $this->arrayStack->pop();
+        $item3 = $this->stack->pop();
+        $item2 = $this->stack->pop();
 
-        $this->assertCount(1, $this->arrayStack);
+        $this->assertCount(1, $this->stack);
         $this->assertSame('Item 3', $item3);
         $this->assertSame('Item 2', $item2);
 
-        $item1 = $this->arrayStack->pop();
+        $item1 = $this->stack->pop();
 
-        $this->assertCount(0, $this->arrayStack);
-        $this->assertTrue($this->arrayStack->isEmpty());
+        $this->assertCount(0, $this->stack);
+        $this->assertTrue($this->stack->isEmpty());
         $this->assertSame('Item 1', $item1);
     }
 
     public function testStackPeek(): void
     {
-        $this->arrayStack->push('Item 1');
-        $this->arrayStack->push('Item 2');
-        $this->arrayStack->push('Item 3');
+        $this->stack->push('Item 1');
+        $this->stack->push('Item 2');
+        $this->stack->push('Item 3');
 
-        $this->assertSame('Item 3', $this->arrayStack->peek());
+        $this->assertSame('Item 3', $this->stack->peek());
 
-        $this->arrayStack->pop();
+        $this->stack->pop();
 
-        $this->assertSame('Item 2', $this->arrayStack->peek());
+        $this->assertSame('Item 2', $this->stack->peek());
 
-        $this->arrayStack->pop();
+        $this->stack->pop();
 
-        $this->assertSame('Item 1', $this->arrayStack->peek());
+        $this->assertSame('Item 1', $this->stack->peek());
     }
 
     public function testOverflowExceptionOnStackLimit(): void
     {
         $this->expectException(OverflowException::class);
 
-        $this->arrayStack->push('Item 1');
-        $this->arrayStack->push('Item 2');
-        $this->arrayStack->push('Item 3');
-        $this->arrayStack->push('Item 4');
-        $this->arrayStack->push('Item 5');
-        $this->arrayStack->push('Item 6');
+        $this->stack->push('Item 1');
+        $this->stack->push('Item 2');
+        $this->stack->push('Item 3');
+        $this->stack->push('Item 4');
+        $this->stack->push('Item 5');
+        $this->stack->push('Item 6');
     }
 
     public function testUnderflowExceptionOnPopWithEmtpyStack(): void
     {
         $this->expectException(UnderflowException::class);
-        $this->arrayStack->pop();
+        $this->stack->pop();
     }
 }
