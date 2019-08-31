@@ -47,6 +47,28 @@ class LinkedListTest extends TestCase
         $this->assertSame('Item 3', $secondNode->data);
     }
 
+    public function testDeleteFirst(): void
+    {
+        $this->insertLinkNodes(3);
+        $this->linkedList->deleteFirst();
+        $this->assertCount(2, $this->linkedList);
+
+        $secondNode = $this->linkedList->getLinkNode(0);
+
+        $this->assertSame('Item 2', $secondNode->data);
+    }
+
+    public function testDeleteLast(): void
+    {
+        $this->insertLinkNodes(3);
+        $this->linkedList->deleteLast();
+        $this->assertCount(2, $this->linkedList);
+
+        $secondNode = $this->linkedList->getLinkNode(3);
+
+        $this->assertSame('Item 2', $secondNode->data);
+    }
+
     public function testGetNode(): void
     {
         $this->insertLinkNodes(3);

@@ -68,24 +68,6 @@ class LinkedList implements Countable
         }
     }
 
-    public function toArray(): array
-    {
-        $output = [];
-
-        if (!$this->firstNode) {
-            return $output;
-        }
-
-        $currentNode = $this->firstNode;
-
-        while ($currentNode) {
-            $output[] = $currentNode->data;
-            $currentNode = $currentNode->next;
-        }
-
-        return $output;
-    }
-
     public function reverse(): void
     {
         if (!$this->firstNode || !$this->firstNode->next) {
@@ -149,6 +131,63 @@ class LinkedList implements Countable
             $previous = $currentNode;
             $currentNode = $currentNode->next;
         }
+    }
+
+
+    public function deleteFirst(): void
+    {
+        if (!$this->firstNode) {
+            return;
+        }
+
+        if ($this->firstNode->next) {
+            $this->firstNode = $this->firstNode->next;
+        } else {
+            $this->firstNode = null;
+        }
+
+        $this->totalNodes--;
+    }
+
+    public function deleteLast(): void
+    {
+        if (!$this->firstNode) {
+            return;
+        }
+
+        $currentNode = $this->firstNode;
+
+        if (!$currentNode->next) {
+            $this->firstNode = null;
+        } else {
+            $previousNode = null;
+
+            while ($currentNode->next) {
+                $previousNode = $currentNode;
+                $currentNode = $currentNode->next;
+            }
+
+            $previousNode->next = null;
+            $this->totalNodes--;
+        }
+    }
+
+    public function toArray(): array
+    {
+        $output = [];
+
+        if (!$this->firstNode) {
+            return $output;
+        }
+
+        $currentNode = $this->firstNode;
+
+        while ($currentNode) {
+            $output[] = $currentNode->data;
+            $currentNode = $currentNode->next;
+        }
+
+        return $output;
     }
 
     public function count(): int
