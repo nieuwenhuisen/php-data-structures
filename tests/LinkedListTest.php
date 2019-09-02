@@ -64,12 +64,12 @@ class LinkedListTest extends TestCase
         $this->linkedList->deleteLast();
         $this->assertCount(2, $this->linkedList);
 
-        $secondNode = $this->linkedList->getLinkNode(3);
+        $secondNode = $this->linkedList->getLinkNode(1);
 
         $this->assertSame('Item 2', $secondNode->data);
     }
 
-    public function testGetNode(): void
+    public function testGetLinkNode(): void
     {
         $this->insertLinkNodes(3);
         $secondNode = $this->linkedList->getLinkNode(1);
