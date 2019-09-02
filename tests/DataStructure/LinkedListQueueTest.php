@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests;
+namespace App\DataStructure\Tests;
 
-use App\Queue\LinkedListQueue;
+use App\DataStructure\Queue\LinkedListQueue;
 use OverflowException;
 use PHPUnit\Framework\TestCase;
 use UnderflowException;

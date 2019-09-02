@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests;
+namespace App\DataStructure\Tests;
 
-use App\Stack\ArrayStack;
+use App\DataStructure\Stack\ArrayStack;
 use OverflowException;
 use PHPUnit\Framework\TestCase;
 use UnderflowException;

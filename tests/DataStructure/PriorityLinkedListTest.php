@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests;
+namespace App\DataStructure\Tests;
 
-use App\LinkedList\PriorityLinkedList;
+use App\DataStructure\LinkedList\PriorityLinkedList;
 use PHPUnit\Framework\TestCase;
 
 class PriorityLinkedListTest extends TestCase

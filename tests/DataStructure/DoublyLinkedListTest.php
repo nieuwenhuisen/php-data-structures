@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests;
+namespace App\DataStructure\Tests;
 
-use App\LinkedList\DoublyLinkedList;
+use App\DataStructure\LinkedList\DoublyLinkedList;
 use PHPUnit\Framework\TestCase;
 
 class DoublyLinkedListTest extends TestCase

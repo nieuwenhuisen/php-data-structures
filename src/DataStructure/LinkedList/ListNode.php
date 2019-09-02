@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LinkedList;
+namespace App\DataStructure\LinkedList;
 
 class ListNode
 {

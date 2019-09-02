@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Stack;
+namespace App\DataStructure\Stack;
 
 use Countable;
 use OverflowException;

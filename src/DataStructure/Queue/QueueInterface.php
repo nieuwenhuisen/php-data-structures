@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Queue;
+namespace App\DataStructure\Queue;
 
 interface QueueInterface
 {

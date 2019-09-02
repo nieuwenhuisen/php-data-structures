@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LinkedList;
+namespace App\DataStructure\LinkedList;
 
 use Countable;
 use Iterator;
@@ -132,7 +132,6 @@ class LinkedList implements Countable
             $currentNode = $currentNode->next;
         }
     }
-
 
     public function deleteFirst(): void
     {

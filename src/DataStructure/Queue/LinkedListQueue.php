@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Queue;
+namespace App\DataStructure\Queue;
 
+use App\DataStructure\LinkedList\LinkedList;
 use Countable;
 use OverflowException;
 use UnderflowException;
 
-class ArrayQueue implements QueueInterface, Countable
+class LinkedListQueue implements QueueInterface, Countable
 {
     private $limit;
     private $queue;
@@ -17,7 +18,7 @@ class ArrayQueue implements QueueInterface, Countable
     public function __construct(int $limit = 0)
     {
         $this->limit = $limit;
-        $this->queue = [];
+        $this->queue = new LinkedList();
     }
 
     public function enqueue($item): void
@@ -26,33 +27,32 @@ class ArrayQueue implements QueueInterface, Countable
             throw new OverflowException('Queue limit reached');
         }
 
-        $this->queue[] = $item;
+        $this->queue->insert($item);
     }
 
-    /**
-     * @return mixed
-     */
     public function dequeue()
     {
         if ($this->isEmpty()) {
             throw new UnderflowException('Queue is empty');
         }
 
-        return array_shift($this->queue);
+        $lastItem = $this->peek();
+        $this->queue->deleteFirst();
+        return $lastItem;
     }
 
     public function peek()
     {
-        return current($this->queue);
+        return $this->queue->getLinkNode(0)->data;
     }
 
-    public function count()
+    public function count(): int
     {
-        return count($this->queue);
+        return $this->queue->count();
     }
 
     public function isEmpty(): bool
     {
-        return empty($this->queue);
+        return 0 === $this->count();
     }
 }

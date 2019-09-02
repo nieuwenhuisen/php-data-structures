@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Queue;
+namespace App\DataStructure\Queue;
 
-use App\LinkedList\PriorityLinkedList;
+use App\DataStructure\LinkedList\PriorityLinkedList;
 use Countable;
 use OverflowException;
 use UnderflowException;
