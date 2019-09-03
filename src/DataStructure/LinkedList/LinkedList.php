@@ -145,7 +145,7 @@ class LinkedList implements Countable
             $this->firstNode = null;
         }
 
-        $this->totalNodes--;
+        --$this->totalNodes;
     }
 
     public function deleteLast(): void
@@ -167,7 +167,7 @@ class LinkedList implements Countable
             }
 
             $previousNode->next = null;
-            $this->totalNodes--;
+            --$this->totalNodes;
         }
     }
 

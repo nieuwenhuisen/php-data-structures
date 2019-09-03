@@ -17,10 +17,10 @@ class DoublyLinkedList implements Countable
 
     private $totalNodes = 0;
 
-    private function createNode($data)
+    private function createNode($data): ?ListNode
     {
         $newNode = new ListNode($data);
-        $this->totalNodes++;
+        ++$this->totalNodes;
 
         if (!$this->firstNode) {
             $this->firstNode = $newNode;
@@ -34,17 +34,21 @@ class DoublyLinkedList implements Countable
 
     public function insertAtFirst($data): void
     {
-        if ($newNode = $this->createNode($data)) {
+        $newNode = $this->createNode($data);
+
+        if ($newNode && $this->firstNode) {
             $currentFirstNode = $this->firstNode;
             $newNode->next = $currentFirstNode;
-            $currentFirstNode->prev = $newNode;
+            $currentFirstNode->previous = $newNode;
             $this->firstNode = $newNode;
         }
     }
 
     public function insertAtLast($data): void
     {
-        if ($newNode = $this->createNode($data)) {
+        $newNode = $this->createNode($data);
+
+        if ($newNode && $this->lastNode) {
             $currentLastNode = $this->lastNode;
             $currentLastNode->next = $newNode;
             $newNode->previous = $currentLastNode;
@@ -54,9 +58,11 @@ class DoublyLinkedList implements Countable
 
     public function insertBefore($data, $query): void
     {
-        /** @var ListNode $newNode */
-        if ($newNode = $this->createNode($data)) {
-            $previous = null;
+        $newNode = $this->createNode($data);
+
+        if ($newNode) {
+            /** @var ListNode $previous */
+            $previous = $this->firstNode;
             $currentNode = $this->firstNode;
 
             while ($currentNode) {
@@ -76,8 +82,10 @@ class DoublyLinkedList implements Countable
 
     public function insertAfter($data, $query): void
     {
+        $newNode = $this->createNode($data);
+
         /** @var ListNode $newNode */
-        if ($newNode = $this->createNode($data)) {
+        if ($newNode) {
             $nextNode = null;
             $currentNode = $this->firstNode;
 
@@ -85,6 +93,7 @@ class DoublyLinkedList implements Countable
                 if ($currentNode->data === $query) {
                     if ($nextNode) {
                         $newNode->next = $nextNode;
+                        $nextNode->previous = $newNode;
                     }
 
                     if ($currentNode === $this->lastNode) {
@@ -92,19 +101,21 @@ class DoublyLinkedList implements Countable
                     }
 
                     $currentNode->next = $newNode;
-                    $nextNode->previous = $newNode;
                     $newNode->previous = $currentNode;
                     break;
                 }
                 $currentNode = $currentNode->next;
-                $nextNode = $currentNode->next;
+
+                if ($currentNode) {
+                    $nextNode = $currentNode->next;
+                }
             }
         }
     }
 
     public function deleteFirst(): void
     {
-        if ($this->count() === 0) {
+        if (!$this->firstNode) {
             return;
         }
 
@@ -115,12 +126,12 @@ class DoublyLinkedList implements Countable
             $this->firstNode = null;
         }
 
-        $this->totalNodes--;
+        --$this->totalNodes;
     }
 
     public function deleteLast(): void
     {
-        if ($this->count() === 0) {
+        if (!$this->lastNode) {
             return;
         }
 
@@ -135,16 +146,16 @@ class DoublyLinkedList implements Countable
             $previousNode->next = null;
         }
 
-        $this->totalNodes--;
+        --$this->totalNodes;
     }
 
     public function delete($query): void
     {
-        if ($this->count() === 0) {
+        if (!$this->firstNode) {
             return;
         }
 
-        $previous = null;
+        $previous = $this->firstNode;
         $currentNode = $this->firstNode;
 
         while ($currentNode) {
@@ -156,7 +167,7 @@ class DoublyLinkedList implements Countable
                     $currentNode->next->previous = $previous;
                 }
 
-                $this->totalNodes--;
+                --$this->totalNodes;
                 break;
             }
 
@@ -169,7 +180,7 @@ class DoublyLinkedList implements Countable
     {
         $output = [];
 
-        $forward = $direction === self::DIRECTION_FORWARD;
+        $forward = self::DIRECTION_FORWARD === $direction;
         $currentNode = $forward ? $this->firstNode : $this->lastNode;
 
         /** @var ListNode $currentNode */

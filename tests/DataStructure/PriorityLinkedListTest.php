@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\Tests;
+namespace App\Tests\DataStructure;
 
 use App\DataStructure\LinkedList\PriorityLinkedList;
 use PHPUnit\Framework\TestCase;
@@ -22,7 +22,7 @@ class PriorityLinkedListTest extends TestCase
         $this->linkedList->insert('Item 1', 4);
         $this->linkedList->insert('Item 3A', 2);
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 2',

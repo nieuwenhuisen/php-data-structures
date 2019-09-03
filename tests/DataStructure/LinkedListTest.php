@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\Tests;
+namespace App\Tests\DataStructure;
 
 use App\DataStructure\LinkedList\LinkedList;
 use App\DataStructure\LinkedList\ListNode;

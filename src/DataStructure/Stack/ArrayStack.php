@@ -2,10 +2,10 @@
 
 namespace App\DataStructure\Stack;
 
+use function count;
 use Countable;
 use OverflowException;
 use UnderflowException;
-use function count;
 
 class ArrayStack implements StackInterface, Countable
 {
@@ -23,7 +23,7 @@ class ArrayStack implements StackInterface, Countable
 
     public function push($item): void
     {
-        if ($this->limit > 0 && count($this->stack) >= $this->limit) {
+        if ($this->limit > 0 && \count($this->stack) >= $this->limit) {
             throw new OverflowException('Stack limit reached');
         }
 
@@ -46,7 +46,7 @@ class ArrayStack implements StackInterface, Countable
 
     public function count(): int
     {
-        return count($this->stack);
+        return \count($this->stack);
     }
 
     public function isEmpty(): bool

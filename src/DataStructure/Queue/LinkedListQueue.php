@@ -23,7 +23,7 @@ class LinkedListQueue implements QueueInterface, Countable
 
     public function enqueue($item): void
     {
-        if ($this->limit > 0 && count($this->queue) >= $this->limit) {
+        if ($this->limit > 0 && \count($this->queue) >= $this->limit) {
             throw new OverflowException('Queue limit reached');
         }
 
@@ -38,6 +38,7 @@ class LinkedListQueue implements QueueInterface, Countable
 
         $lastItem = $this->peek();
         $this->queue->deleteFirst();
+
         return $lastItem;
     }
 

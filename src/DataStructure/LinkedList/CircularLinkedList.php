@@ -25,7 +25,7 @@ class CircularLinkedList implements Countable
             $currentNode->next = $newNode;
         }
 
-        $this->totalNodes++;
+        ++$this->totalNodes;
         $newNode->next = $this->firstNode;
 
         return true;

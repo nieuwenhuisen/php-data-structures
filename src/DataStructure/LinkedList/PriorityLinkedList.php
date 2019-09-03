@@ -15,10 +15,11 @@ class PriorityLinkedList implements Countable
     public function insert($data, int $priority = 0): void
     {
         $newNode = new ListNode($data, $priority);
-        $this->totalNodes++;
+        ++$this->totalNodes;
 
         if (!$this->firstNode) {
             $this->firstNode = $newNode;
+
             return;
         }
 
@@ -31,16 +32,19 @@ class PriorityLinkedList implements Countable
                     $previous = $this->firstNode;
                     $this->firstNode = $newNode;
                     $newNode->next = $previous;
+
                     return;
                 }
 
                 $newNode->next = $currentNode;
                 $previous->next = $newNode;
+
                 return;
             }
 
             if (!$currentNode->next) {
                 $currentNode->next = $newNode;
+
                 return;
             }
 
@@ -75,7 +79,7 @@ class PriorityLinkedList implements Countable
             $this->firstNode = null;
         }
 
-        $this->totalNodes--;
+        --$this->totalNodes;
     }
 
     public function toArray(): array

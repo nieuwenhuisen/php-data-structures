@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\Tests;
+namespace App\Tests\DataStructure;
 
 use App\DataStructure\Stack\ExpressionChecker;
 use PHPUnit\Framework\TestCase;
@@ -20,12 +20,10 @@ class ExpressionCheckerTest extends TestCase
 
     /**
      * @dataProvider expressionsData
-     * @param string $expression
-     * @param bool $expectedResult
      */
     public function testCheck(string $expression, bool $expectedResult): void
     {
         $result = ExpressionChecker::check($expression);
-        $this->assertEquals($expectedResult, $result);
+        $this->assertSame($expectedResult, $result);
     }
 }

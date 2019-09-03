@@ -16,16 +16,13 @@ class ExpressionChecker
      * Check an expression on correctness.
      * For example:
      * correct: 8 * (9 -2) + { (4 * 5) / ( 2 * 2) }
-     * wrong: 5 * 8 * 9 / ( 3 * 2 ) )
-     *
-     * @param string $expression
-     * @return bool
+     * wrong: 5 * 8 * 9 / ( 3 * 2 ) ).
      */
     public static function check(string $expression): bool
     {
         $stack = new ArrayStack(0);
 
-        for ($i = 0, $length = strlen($expression); $i < $length; $i++) {
+        for ($i = 0, $length = \mb_strlen($expression); $i < $length; ++$i) {
             $char = $expression[$i];
 
             // If a new group is started
@@ -34,7 +31,7 @@ class ExpressionChecker
                 continue;
             }
 
-            if (in_array($char,self::GROUPS, true)) {
+            if (\in_array($char, self::GROUPS, true)) {
                 try {
                     $last = $stack->pop();
                     if (self::GROUPS[$last] !== $char) {

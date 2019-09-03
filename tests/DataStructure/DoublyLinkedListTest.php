@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\Tests;
+namespace App\Tests\DataStructure;
 
 use App\DataStructure\LinkedList\DoublyLinkedList;
 use PHPUnit\Framework\TestCase;
@@ -19,7 +19,7 @@ class DoublyLinkedListTest extends TestCase
         $this->linkedList->insertAtFirst('Item 1');
         $this->linkedList->insertAtFirst('Item 2');
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 2',
                 'Item 1',
@@ -41,7 +41,7 @@ class DoublyLinkedListTest extends TestCase
         $this->linkedList->insertAtLast('Item 1');
         $this->linkedList->insertAtLast('Item 2');
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 2',
@@ -57,7 +57,7 @@ class DoublyLinkedListTest extends TestCase
         $this->linkedList->insertAtLast('Item 4');
         $this->linkedList->insertBefore('Item 3', 'Item 4');
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 2',
@@ -75,7 +75,7 @@ class DoublyLinkedListTest extends TestCase
         $this->linkedList->insertAtLast('Item 4');
         $this->linkedList->insertAfter('Item 3', 'Item 2');
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 2',
@@ -97,7 +97,7 @@ class DoublyLinkedListTest extends TestCase
 
         $this->assertCount(3, $this->linkedList);
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 2',
                 'Item 3',
@@ -118,7 +118,7 @@ class DoublyLinkedListTest extends TestCase
 
         $this->assertCount(3, $this->linkedList);
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 2',
@@ -140,7 +140,7 @@ class DoublyLinkedListTest extends TestCase
 
         $this->assertCount(2, $this->linkedList);
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 4',
@@ -155,7 +155,7 @@ class DoublyLinkedListTest extends TestCase
         $this->linkedList->insertAtLast('Item 2');
         $this->linkedList->insertAtLast('Item 3');
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 1',
                 'Item 2',
@@ -166,7 +166,7 @@ class DoublyLinkedListTest extends TestCase
             )
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Item 3',
                 'Item 2',
