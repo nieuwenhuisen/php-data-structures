@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\LinkedList;
+namespace App\DataStructures\LinkedList;
 
 use Countable;
 

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Tests\DataStructure;
+namespace App\Tests\DataStructures;
 
-use App\DataStructure\Queue\ArrayQueue;
+use App\DataStructures\Queue\LinkedListQueue;
 use OverflowException;
 use PHPUnit\Framework\TestCase;
 use UnderflowException;
 
-class ArrayQueueTest extends TestCase
+class LinkedListQueueTest extends TestCase
 {
     private $queue;
 
     public function setUp(): void
     {
-        $this->queue = new ArrayQueue(5);
+        $this->queue = new LinkedListQueue(5);
     }
 
     public function testQueueIsEmpty(): void

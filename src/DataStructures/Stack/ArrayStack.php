@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\Stack;
+namespace App\DataStructures\Stack;
 
 use function count;
 use Countable;

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\DataStructure\Queue;
+namespace App\DataStructures\Queue;
 
-use App\DataStructure\LinkedList\LinkedList;
+use App\DataStructures\LinkedList\PriorityLinkedList;
 use Countable;
 use OverflowException;
 use UnderflowException;
 
-class LinkedListQueue implements QueueInterface, Countable
+class PriorityLinkedListQueue implements Countable, QueueInterface
 {
     private $limit;
     private $queue;
@@ -18,16 +18,16 @@ class LinkedListQueue implements QueueInterface, Countable
     public function __construct(int $limit = 0)
     {
         $this->limit = $limit;
-        $this->queue = new LinkedList();
+        $this->queue = new PriorityLinkedList();
     }
 
-    public function enqueue($item): void
+    public function enqueue($item, $priority = 0): void
     {
         if ($this->limit > 0 && \count($this->queue) >= $this->limit) {
             throw new OverflowException('Queue limit reached');
         }
 
-        $this->queue->insert($item);
+        $this->queue->insert($item, $priority);
     }
 
     public function dequeue()

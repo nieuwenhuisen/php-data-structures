@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Tests\DataStructure;
+namespace App\Tests\DataStructures;
 
-use App\DataStructure\Queue\LinkedListQueue;
+use App\DataStructures\Queue\PriorityLinkedListQueue;
 use OverflowException;
 use PHPUnit\Framework\TestCase;
 use UnderflowException;
 
-class LinkedListQueueTest extends TestCase
+class PriorityLinkedListQueueTest extends TestCase
 {
     private $queue;
 
     public function setUp(): void
     {
-        $this->queue = new LinkedListQueue(5);
+        $this->queue = new PriorityLinkedListQueue(5);
     }
 
     public function testQueueIsEmpty(): void
@@ -23,18 +23,18 @@ class LinkedListQueueTest extends TestCase
 
     public function testQueuePush(): void
     {
-        $this->queue->enqueue('Item 1');
-        $this->queue->enqueue('Item 2');
-        $this->queue->enqueue('Item 3');
+        $this->queue->enqueue('Item 1', 1);
+        $this->queue->enqueue('Item 2', 1);
+        $this->queue->enqueue('Item 3', 1);
 
         $this->assertCount(3, $this->queue);
     }
 
     public function testQueuePop(): void
     {
-        $this->queue->enqueue('Item 1');
-        $this->queue->enqueue('Item 2');
-        $this->queue->enqueue('Item 3');
+        $this->queue->enqueue('Item 1', 3);
+        $this->queue->enqueue('Item 2', 2);
+        $this->queue->enqueue('Item 3', 1);
 
         $item1 = $this->queue->dequeue();
         $item2 = $this->queue->dequeue();
@@ -52,9 +52,9 @@ class LinkedListQueueTest extends TestCase
 
     public function testQueuePeek(): void
     {
-        $this->queue->enqueue('Item 1');
-        $this->queue->enqueue('Item 2');
-        $this->queue->enqueue('Item 3');
+        $this->queue->enqueue('Item 1', 3);
+        $this->queue->enqueue('Item 2', 2);
+        $this->queue->enqueue('Item 3', 1);
 
         $this->assertSame('Item 1', $this->queue->peek());
 
@@ -71,12 +71,12 @@ class LinkedListQueueTest extends TestCase
     {
         $this->expectException(OverflowException::class);
 
-        $this->queue->enqueue('Item 1');
-        $this->queue->enqueue('Item 2');
-        $this->queue->enqueue('Item 3');
-        $this->queue->enqueue('Item 4');
-        $this->queue->enqueue('Item 5');
-        $this->queue->enqueue('Item 6');
+        $this->queue->enqueue('Item 1', 1);
+        $this->queue->enqueue('Item 2', 1);
+        $this->queue->enqueue('Item 3', 1);
+        $this->queue->enqueue('Item 4', 1);
+        $this->queue->enqueue('Item 5', 1);
+        $this->queue->enqueue('Item 6', 1);
     }
 
     public function testUnderflowExceptionOnPopWithEmtpyQueue(): void

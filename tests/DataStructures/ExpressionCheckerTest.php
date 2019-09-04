@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\DataStructure;
+namespace App\Tests\DataStructures;
 
-use App\DataStructure\Stack\ExpressionChecker;
+use App\DataStructures\Stack\ExpressionChecker;
 use PHPUnit\Framework\TestCase;
 
 class ExpressionCheckerTest extends TestCase

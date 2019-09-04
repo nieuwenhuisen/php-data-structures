@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataStructure\Queue;
+namespace App\DataStructures\Queue;
 
 use Countable;
 use OverflowException;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\DataStructure;
+namespace App\Tests\DataStructures;
 
-use App\DataStructure\LinkedList\CircularLinkedList;
+use App\DataStructures\LinkedList\CircularLinkedList;
 use PHPUnit\Framework\TestCase;
 
 class CircularLinkedListTest extends TestCase
