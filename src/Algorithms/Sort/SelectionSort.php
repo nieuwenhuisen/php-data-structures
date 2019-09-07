@@ -2,11 +2,13 @@
 
 namespace App\Algorithms\Sort;
 
+use function count;
+
 class SelectionSort
 {
     public static function sort(array $input): array
     {
-        $length = \count($input);
+        $length = count($input);
 
         for ($i = 0; $i < $length; ++$i) {
             $min = $i;
