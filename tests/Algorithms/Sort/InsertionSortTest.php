@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Algorithms;
+namespace App\Tests\Algorithms\Sort;
 
-use App\Algorithms\InsertionSort;
+use App\Algorithms\Sort\InsertionSort;
 use PHPUnit\Framework\TestCase;
 
 class InsertionSortTest extends TestCase
@@ -14,6 +14,6 @@ class InsertionSortTest extends TestCase
 
         $sorted = InsertionSort::sort($input);
 
-        $this->assertEquals($expected, $sorted);
+        $this->assertSame($expected, $sorted);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Algorithms;
+namespace App\Tests\Algorithms\Sort;
 
-use App\Algorithms\SelectionSort;
+use App\Algorithms\Sort\SelectionSort;
 use PHPUnit\Framework\TestCase;
 
 class SelectionSortTest extends TestCase
@@ -15,6 +15,6 @@ class SelectionSortTest extends TestCase
         // Iterations: 45
         $sorted = SelectionSort::sort($input);
 
-        $this->assertEquals($expected, $sorted);
+        $this->assertSame($expected, $sorted);
     }
 }

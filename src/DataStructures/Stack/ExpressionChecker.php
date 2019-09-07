@@ -22,7 +22,7 @@ class ExpressionChecker
     {
         $stack = new ArrayStack(0);
 
-        for ($i = 0, $length = \mb_strlen($expression); $i < $length; ++$i) {
+        for ($i = 0, $length = mb_strlen($expression); $i < $length; ++$i) {
             $char = $expression[$i];
 
             // If a new group is started

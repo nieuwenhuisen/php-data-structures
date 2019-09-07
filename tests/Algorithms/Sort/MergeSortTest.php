@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Algorithms;
+namespace App\Tests\Algorithms\Sort;
 
-use App\Algorithms\MergeSort;
+use App\Algorithms\Sort\MergeSort;
 use PHPUnit\Framework\TestCase;
 
 class MergeSortTest extends TestCase
@@ -14,6 +14,6 @@ class MergeSortTest extends TestCase
 
         $sorted = MergeSort::sort($input);
 
-        $this->assertEquals($expected, $sorted);
+        $this->assertSame($expected, $sorted);
     }
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Algorithms;
+namespace App\Algorithms\Sort;
 
 class SelectionSort
 {
     public static function sort(array $input): array
     {
-        $length = count($input);
+        $length = \count($input);
 
-        for ($i = 0; $i < $length; $i++) {
+        for ($i = 0; $i < $length; ++$i) {
             $min = $i;
 
-            for ($j = $i+1; $j < $length; $j++) {
+            for ($j = $i + 1; $j < $length; ++$j) {
                 if ($input[$j] < $input[$min]) {
                     $min = $j;
                 }

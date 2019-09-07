@@ -1,39 +1,38 @@
 <?php
 
-namespace App\Algorithms;
+namespace App\Algorithms\Sort;
 
 class QuickSort
 {
     public static function sort(array &$input, $p = 0, $r = false): void
     {
-        if ($r === false) {
-            $r = count($input)-1;
+        if (false === $r) {
+            $r = \count($input) - 1;
         }
 
         if ($p < $r) {
             $q = self::partition($input, $p, $r);
             self::sort($input, $p, $q);
-            self::sort($input, $q+1, $r);
+            self::sort($input, $q + 1, $r);
         }
     }
 
     public static function partition(array &$input, int $p, int $r): ?int
     {
         $pivot = $input[$p];
-        $i = $p-1;
-        $j = $r+1;
+        $i = $p - 1;
+        $j = $r + 1;
 
-        while (true)
-        {
+        while (true) {
             do {
-                $i++;
-            } while($input[$i] < $pivot && $input[$i] !== $pivot);
+                ++$i;
+            } while ($input[$i] < $pivot && $input[$i] !== $pivot);
 
             do {
-                $j--;
-            } while($input[$j] > $pivot && $input[$j] !== $pivot);
+                --$j;
+            } while ($input[$j] > $pivot && $input[$j] !== $pivot);
 
-            if($i < $j) {
+            if ($i < $j) {
                 $temp = $input[$i];
                 $input[$i] = $input[$j];
                 $input[$j] = $temp;

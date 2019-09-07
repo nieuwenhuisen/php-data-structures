@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Algorithms;
+namespace App\Tests\Algorithms\Sort;
 
-use App\Algorithms\QuickSort;
+use App\Algorithms\Sort\QuickSort;
 use PHPUnit\Framework\TestCase;
 
 class QuickSortTest extends TestCase
@@ -13,6 +13,6 @@ class QuickSortTest extends TestCase
         $expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         QuickSort::sort($input);
-        $this->assertEquals($expected, $input);
+        $this->assertSame($expected, $input);
     }
 }

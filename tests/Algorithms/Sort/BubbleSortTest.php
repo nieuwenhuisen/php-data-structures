@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Algorithms;
+namespace App\Tests\Algorithms\Sort;
 
-use App\Algorithms\BubbleSort;
+use App\Algorithms\Sort\BubbleSort;
 use PHPUnit\Framework\TestCase;
 
 class BubbleSortTest extends TestCase
@@ -18,6 +18,6 @@ class BubbleSortTest extends TestCase
         // Iterations bound (save last swap position and use as new bound): 34
         $sorted = BubbleSort::sort($input);
 
-        $this->assertEquals($expected, $sorted);
+        $this->assertSame($expected, $sorted);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Algorithms;
+namespace App\Tests\Algorithms\Sort;
 
-use App\Algorithms\BucketSort;
+use App\Algorithms\Sort\BucketSort;
 use PHPUnit\Framework\TestCase;
 
 class BucketSortTest extends TestCase
@@ -14,6 +14,6 @@ class BucketSortTest extends TestCase
 
         $sorted = BucketSort::sort($input);
 
-        $this->assertEquals($expected, $sorted);
+        $this->assertSame($expected, $sorted);
     }
 }
