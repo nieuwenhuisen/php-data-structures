@@ -6,7 +6,7 @@ use App\DataStructures\LinkedList\BasicLinkedList;
 use App\DataStructures\LinkedList\ListNode;
 use PHPUnit\Framework\TestCase;
 
-class LinkedListTest extends TestCase
+class BasicLinkedListTest extends TestCase
 {
     private $linkedList;
 

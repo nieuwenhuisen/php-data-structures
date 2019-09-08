@@ -7,7 +7,7 @@ Some example and test code for PHP data structures and Algorithms.
 ### Data Structures
 
 #### Linked List's
-- Linked list
+- Basic linked list
 - Doubly linked list
 - Circular linked list
 - Priority linked list

@@ -6,9 +6,9 @@ class LinearSearch
 {
     public static function search(array $input, $needle): bool
     {
-        $totalItems = count($input);
+        $totalItems = \count($input);
 
-        for ($i = 0; $i < $totalItems; $i++) {
+        for ($i = 0; $i < $totalItems; ++$i) {
             if ($input[$i] === $needle) {
                 return true;
             }

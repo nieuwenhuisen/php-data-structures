@@ -16,7 +16,7 @@ class BucketSort
         $max = max($input);
         $bucketLength = $max - $min + 1;
 
-        $bucket = array_fill(0, (int)$bucketLength, []);
+        $bucket = array_fill(0, (int) $bucketLength, []);
 
         for ($i = 0; $i < $inputCount; ++$i) {
             $bucket[$input[$i] - $min][] = $input[$i];

@@ -2,14 +2,12 @@
 
 namespace App\Algorithms\Sort;
 
-use function count;
-
 class QuickSort
 {
     public static function sort(array &$input, $p = 0, $r = false): void
     {
         if (false === $r) {
-            $r = count($input) - 1;
+            $r = \count($input) - 1;
         }
 
         if ($p < $r) {
