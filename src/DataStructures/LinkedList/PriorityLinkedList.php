@@ -4,7 +4,7 @@ namespace App\DataStructures\LinkedList;
 
 use Countable;
 
-class PriorityLinkedList implements Countable
+class PriorityLinkedList implements Countable, LinkedListInterface
 {
     /** @var ListNode|null */
     private $firstNode;

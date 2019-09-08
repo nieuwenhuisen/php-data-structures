@@ -4,7 +4,7 @@ namespace App\DataStructures\LinkedList;
 
 use Countable;
 
-class DoublyLinkedList implements Countable
+class DoublyLinkedList implements Countable, LinkedListInterface
 {
     public const DIRECTION_FORWARD = 'DIRECTION_FORWARD';
     public const DIRECTION_BACKWARD = 'DIRECTION_BACKWARD';
@@ -195,5 +195,19 @@ class DoublyLinkedList implements Countable
     public function count(): int
     {
         return $this->totalNodes;
+    }
+
+    public function getLinkNode(int $index = 0): ?ListNode
+    {
+        $currentIndex = 0;
+        $currentNode = $this->firstNode;
+
+        while ($currentNode) {
+            if ($currentIndex === $index) {
+                return $currentNode;
+            }
+            ++$currentIndex;
+            $currentNode = $currentNode->next;
+        }
     }
 }

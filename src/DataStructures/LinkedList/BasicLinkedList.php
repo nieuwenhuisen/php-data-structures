@@ -5,7 +5,7 @@ namespace App\DataStructures\LinkedList;
 use Countable;
 use Iterator;
 
-class LinkedList implements Countable
+class BasicLinkedList implements Countable, LinkedListInterface
 {
     /** @var ListNode|null */
     private $firstNode;

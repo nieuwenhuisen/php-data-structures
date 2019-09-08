@@ -2,7 +2,7 @@
 
 namespace App\Tests\DataStructures;
 
-use App\DataStructures\LinkedList\LinkedList;
+use App\DataStructures\LinkedList\BasicLinkedList;
 use App\DataStructures\LinkedList\ListNode;
 use PHPUnit\Framework\TestCase;
 
@@ -12,7 +12,7 @@ class LinkedListTest extends TestCase
 
     public function setUp(): void
     {
-        $this->linkedList = new LinkedList();
+        $this->linkedList = new BasicLinkedList();
     }
 
     private function insertLinkNodes($amount = 3): void

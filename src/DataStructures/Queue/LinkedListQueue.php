@@ -2,7 +2,7 @@
 
 namespace App\DataStructures\Queue;
 
-use App\DataStructures\LinkedList\LinkedList;
+use App\DataStructures\LinkedList\BasicLinkedList;
 use Countable;
 use OverflowException;
 use UnderflowException;
@@ -18,7 +18,7 @@ class LinkedListQueue implements QueueInterface, Countable
     public function __construct(int $limit = 0)
     {
         $this->limit = $limit;
-        $this->queue = new LinkedList();
+        $this->queue = new BasicLinkedList();
     }
 
     public function enqueue($item): void

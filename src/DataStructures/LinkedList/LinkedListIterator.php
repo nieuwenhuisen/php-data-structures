@@ -9,13 +9,13 @@ class LinkedListIterator implements Iterator
     /** @var int */
     private $currentPosition = 0;
 
-    /** @var LinkedList */
+    /** @var LinkedListInterface */
     private $linkList;
 
     /** @var ListNode|null */
     private $currentNode;
 
-    public function __construct(LinkedList $linkedList)
+    public function __construct(LinkedListInterface $linkedList)
     {
         $this->linkList = $linkedList;
     }
