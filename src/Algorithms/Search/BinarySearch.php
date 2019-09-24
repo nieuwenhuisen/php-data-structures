@@ -23,4 +23,23 @@ class BinarySearch
 
         return false;
     }
+
+    public static function searchWithBounds(array $input, $needle, int $low, int $high): bool
+    {
+        if ($high < $low) {
+            return false;
+        }
+
+        $mid = (int) (($low + $high) / 2);
+
+        if ($input[$mid] > $needle) {
+            return self::searchWithBounds($input, $needle, $low, $mid - 1);
+        }
+
+        if ($input[$mid] < $needle) {
+            return self::searchWithBounds($input, $needle, $mid + 1, $high);
+        }
+
+        return true;
+    }
 }
