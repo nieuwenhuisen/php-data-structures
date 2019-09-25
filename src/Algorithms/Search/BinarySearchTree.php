@@ -32,16 +32,14 @@ class BinarySearchTree
         while ($node) {
             if ($data > $node->data) {
                 if (!$node->right) {
-                    $node->right = new Node($data);
-
+                    $node->right = new Node($data, $node);
                     return $node->right;
                 }
 
                 $node = $node->right;
             } elseif ($data < $node->data) {
                 if (!$node->left) {
-                    $node->left = new Node($data);
-
+                    $node->left = new Node($data, $node);
                     return $node->left;
                 }
 
@@ -69,7 +67,7 @@ class BinarySearchTree
         return $output;
     }
 
-    public function search(int $data): bool
+    public function search(int $data)
     {
         if ($this->isEmpty()) {
             return false;
@@ -83,10 +81,19 @@ class BinarySearchTree
             } elseif ($data < $node->data) {
                 $node = $node->left;
             } else {
-                return true;
+                return $node;
             }
         }
 
         return false;
+    }
+
+    public function remove(int $data): void
+    {
+        $node = $this->search($data);
+
+        if ($node) {
+            $node->delete();
+        }
     }
 }
