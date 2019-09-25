@@ -20,6 +20,10 @@ Some example and test code for PHP data structures and Algorithms.
 #### Stack's
 - Array stack
 
+#### Tree's
+- Tree
+- Binary
+
 **Example usage:**
 - Expression checker
 
@@ -36,6 +40,15 @@ Some example and test code for PHP data structures and Algorithms.
 
 #### Searching
 - Linear Search
+- Binary Search
+- Exponential Search
+- Interpolation Search
+
+#### Recursion
+**Example usage:**
+- Factorial
+- Fibonacci
+- Greatest common division
 
 ---
  
