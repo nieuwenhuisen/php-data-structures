@@ -13,7 +13,7 @@ class BinaryTree
 
     public function traverse(BinaryNode $node, int $level = 0, $output = []): array
     {
-        $output[] = trim(str_repeat('-', $level) . ' ' . $node->data);
+        $output[] = trim(str_repeat('-', $level).' '.$node->data);
 
         if ($node->left) {
             $output = $this->traverse($node->left, $level + 1, $output);

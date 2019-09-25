@@ -19,7 +19,7 @@ class BinarySearchTreeTest extends TestCase
         $tree->insert(13);
         $tree->insert(36);
 
-        $this->assertEquals(
+        $this->assertSame(
             [3, 6, 8, 10, 12, 13, 15, 36],
             $tree->traverse($tree->root)
         );

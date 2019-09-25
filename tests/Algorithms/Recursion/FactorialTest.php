@@ -17,12 +17,10 @@ class FactorialTest extends TestCase
 
     /**
      * @dataProvider factorialData
-     * @param int $factorial
-     * @param int $expected
      */
     public function testFactorial(int $factorial, int $expected): void
     {
         $actual = Factorial::factorial($factorial);
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 }

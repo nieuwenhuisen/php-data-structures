@@ -6,7 +6,7 @@ class GreatestCommonDivision
 {
     public static function gcd(int $a, int $b): int
     {
-        if ($b === 0) {
+        if (0 === $b) {
             return $a;
         }
 

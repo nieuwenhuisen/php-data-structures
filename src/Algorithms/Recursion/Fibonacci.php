@@ -6,7 +6,7 @@ class Fibonacci
 {
     public static function fibonacci(int $number): int
     {
-        if ($number === 0 || $number === 1) {
+        if (0 === $number || 1 === $number) {
             return 1;
         }
 

@@ -6,7 +6,7 @@ class Factorial
 {
     public static function factorial(int $number): int
     {
-        if ($number === 0) {
+        if (0 === $number) {
             return 1;
         }
 

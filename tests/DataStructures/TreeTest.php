@@ -34,7 +34,7 @@ class TreeTest extends TestCase
 
         $output = $tree->traverse($ceo);
 
-        $this->assertEquals([
+        $this->assertSame([
             'CEO',
             '- CTO',
             '-- Senior Architect',

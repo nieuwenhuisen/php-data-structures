@@ -17,12 +17,10 @@ class FibonacciTest extends TestCase
 
     /**
      * @dataProvider fibonacciData
-     * @param int $factorial
-     * @param int $expected
      */
     public function testFibonacci(int $factorial, int $expected): void
     {
         $actual = Fibonacci::fibonacci($factorial);
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 }

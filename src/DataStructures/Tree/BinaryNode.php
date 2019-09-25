@@ -13,7 +13,7 @@ class BinaryNode
         $this->data = $data;
     }
 
-    public function addChildren(BinaryNode $left, BinaryNode $right): void
+    public function addChildren(self $left, self $right): void
     {
         $this->left = $left;
         $this->right = $right;

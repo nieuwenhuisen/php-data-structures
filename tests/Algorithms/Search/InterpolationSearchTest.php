@@ -14,7 +14,7 @@ class InterpolationSearchTest extends TestCase
         $result1 = InterpolationSearch::search($input, 6);
         $result2 = InterpolationSearch::search($input, 11);
 
-        $this->assertEquals(2, $result1);
-        $this->assertEquals( -1, $result2);
+        $this->assertSame(2, $result1);
+        $this->assertSame(-1, $result2);
     }
 }

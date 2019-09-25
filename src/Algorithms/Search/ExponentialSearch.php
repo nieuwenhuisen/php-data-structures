@@ -6,10 +6,10 @@ class ExponentialSearch
 {
     public static function search(array $input, int $key): bool
     {
-        $count = count($input);
+        $count = \count($input);
 
-        if ($count === 0) {
-            return -1;
+        if (0 === $count) {
+            return false;
         }
 
         $bound = 1;
@@ -18,6 +18,6 @@ class ExponentialSearch
             $bound *= 2;
         }
 
-        return BinarySearch::searchWithBounds($input, $key, intval($bound / 2), min($bound, $count));
+        return BinarySearch::searchWithBounds($input, $key, (int) ($bound / 2), min($bound, $count));
     }
 }

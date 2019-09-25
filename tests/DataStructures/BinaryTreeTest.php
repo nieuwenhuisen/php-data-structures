@@ -28,7 +28,7 @@ class BinaryTreeTest extends TestCase
 
         $output = $tree->traverse($final);
 
-        $this->assertEquals([
+        $this->assertSame([
             'Final',
             '- Semi Final 1',
             '-- Quarter Final 1',

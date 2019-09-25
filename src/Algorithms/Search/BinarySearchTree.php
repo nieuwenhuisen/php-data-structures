@@ -33,6 +33,7 @@ class BinarySearchTree
             if ($data > $node->data) {
                 if (!$node->right) {
                     $node->right = new Node($data);
+
                     return $node->right;
                 }
 
@@ -40,6 +41,7 @@ class BinarySearchTree
             } elseif ($data < $node->data) {
                 if (!$node->left) {
                     $node->left = new Node($data);
+
                     return $node->left;
                 }
 
@@ -54,16 +56,14 @@ class BinarySearchTree
 
     public function traverse(Node $node, $output = []): array
     {
-        if ($node) {
-            if ($node->left) {
-                $output = $this->traverse($node->left, $output);
-            }
+        if ($node->left) {
+            $output = $this->traverse($node->left, $output);
+        }
 
-            $output[] = $node->data;
+        $output[] = $node->data;
 
-            if ($node->right) {
-                $output = $this->traverse($node->right, $output);
-            }
+        if ($node->right) {
+            $output = $this->traverse($node->right, $output);
         }
 
         return $output;

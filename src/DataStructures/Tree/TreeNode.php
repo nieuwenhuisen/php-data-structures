@@ -7,11 +7,12 @@ class TreeNode
     public $data;
     public $children = [];
 
-    public function __construct($data = null) {
+    public function __construct($data = null)
+    {
         $this->data = $data;
     }
 
-    public function addChildren(TreeNode $node): void
+    public function addChildren(self $node): void
     {
         $this->children[] = $node;
     }

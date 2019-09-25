@@ -17,13 +17,10 @@ class GreatestCommonDivisionTest extends TestCase
 
     /**
      * @dataProvider greatestCommonDivisionData
-     * @param int $a
-     * @param int $b
-     * @param int $expected
      */
     public function testGreatestCommonDivision(int $a, int $b, int $expected): void
     {
         $actual = GreatestCommonDivision::gcd($a, $b);
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 }

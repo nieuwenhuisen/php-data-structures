@@ -9,13 +9,13 @@ class Node
     public $right;
     public $parent;
 
-    public function __construct(int $data = null, Node $parent = null)
+    public function __construct(int $data = null, self $parent = null)
     {
         $this->data = $data;
         $this->parent = $parent;
     }
 
-    public function min(): Node
+    public function min(): self
     {
         $node = $this;
 
@@ -26,7 +26,7 @@ class Node
         return $node;
     }
 
-    public function max(): Node
+    public function max(): self
     {
         $node = $this;
 
@@ -37,26 +37,28 @@ class Node
         return $node;
     }
 
-    public function successor(): ?Node
+    public function successor(): ?self
     {
         $node = $this;
 
         if ($node->right) {
             /** @var Node $right */
             $right = $node->right;
+
             return $right->min();
         }
 
         return null;
     }
 
-    public function predecessor(): ?Node
+    public function predecessor(): ?self
     {
         $node = $this;
 
         if ($node->left) {
             /** @var Node $left */
             $left = $node->left;
+
             return $left->max();
         }
 
