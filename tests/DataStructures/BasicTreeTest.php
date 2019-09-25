@@ -45,5 +45,33 @@ class BasicTreeTest extends TestCase
             '- CMO',
             '- COO',
         ], $output);
+
+        $output = $tree->breadthFirstSearch($ceo);
+
+        $this->assertSame([
+            'CEO',
+            'CTO',
+            'CFO',
+            'CMO',
+            'COO',
+            'Senior Architect',
+            'Quality Assurance Engineer',
+            'User Interface Designer',
+            'Software Engineer',
+        ], $output);
+
+        $output = $tree->depthFirstSearch($ceo);
+
+        $this->assertSame([
+            'CEO',
+            'CTO',
+            'Senior Architect',
+            'Software Engineer',
+            'Quality Assurance Engineer',
+            'User Interface Designer',
+            'CFO',
+            'CMO',
+            'COO',
+        ], $output);
     }
 }

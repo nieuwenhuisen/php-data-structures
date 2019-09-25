@@ -23,7 +23,7 @@ class BasicTree
         while (!$queue->isEmpty()) {
             /** @var TreeNode $current */
             $current = $queue->dequeue();
-            $output[] = $current;
+            $output[] = $current->data;
 
             foreach ($current->children as $child) {
                 $queue->enqueue($child);
@@ -35,7 +35,7 @@ class BasicTree
 
     public function depthFirstSearch(TreeNode $node, $output = []): array
     {
-        $output[] = $node;
+        $output[] = $node->data;
 
         if ($node->children) {
             foreach ($node->children as $child) {
