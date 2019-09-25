@@ -2,16 +2,16 @@
 
 namespace App\Tests\DataStructures;
 
-use App\DataStructures\Tree\Tree;
+use App\DataStructures\Tree\BasicTree;
 use App\DataStructures\Tree\TreeNode;
 use PHPUnit\Framework\TestCase;
 
-class TreeTest extends TestCase
+class BasicTreeTest extends TestCase
 {
     public function testToString(): void
     {
         $ceo = new TreeNode('CEO');
-        $tree = new Tree($ceo);
+        $tree = new BasicTree($ceo);
         $cto = new TreeNode('CTO');
         $cfo = new TreeNode('CFO');
         $cmo = new TreeNode('CMO');

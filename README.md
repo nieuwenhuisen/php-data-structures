@@ -21,8 +21,8 @@ Some example and test code for PHP data structures and Algorithms.
 - Array stack
 
 #### Tree's
-- Tree
-- Binary
+- Basic Tree
+- Binary Tree
 
 **Example usage:**
 - Expression checker

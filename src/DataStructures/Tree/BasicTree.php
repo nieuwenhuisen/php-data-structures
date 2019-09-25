@@ -2,7 +2,7 @@
 
 namespace App\DataStructures\Tree;
 
-class Tree
+class BasicTree
 {
     public $root;
 
