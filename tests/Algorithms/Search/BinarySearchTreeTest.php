@@ -21,8 +21,18 @@ class BinarySearchTreeTest extends TestCase
         $tree->insert(36);
 
         $this->assertSame(
+            [10, 6, 3, 8, 12, 15, 13, 36],
+            $tree->traverse($tree->root, BinarySearchTree::TRAVERSE_PRE_ORDER)
+        );
+
+        $this->assertSame(
             [3, 6, 8, 10, 12, 13, 15, 36],
-            $tree->traverse($tree->root)
+            $tree->traverse($tree->root, BinarySearchTree::TRAVERSE_IN_ORDER)
+        );
+
+        $this->assertSame(
+            [3, 8, 6, 13, 36, 15, 12, 10],
+            $tree->traverse($tree->root, BinarySearchTree::TRAVERSE_POST_ORDER)
         );
     }
 

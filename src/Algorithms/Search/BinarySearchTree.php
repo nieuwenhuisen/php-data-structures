@@ -6,6 +6,10 @@ use App\DataStructures\Tree\Node;
 
 class BinarySearchTree
 {
+    public const TRAVERSE_IN_ORDER = 'in_order';
+    public const TRAVERSE_PRE_ORDER = 'pre_order';
+    public const TRAVERSE_POST_ORDER = 'post_order';
+
     public $root;
 
     public function __construct(int $data)
@@ -52,17 +56,61 @@ class BinarySearchTree
         return $node;
     }
 
-    public function traverse(Node $node, $output = []): array
+    public function traverse(Node $node, $type = self::TRAVERSE_IN_ORDER): array
+    {
+        switch ($type)
+        {
+            case self::TRAVERSE_PRE_ORDER:
+                return $this->traversePreOrder($node);
+            case self::TRAVERSE_POST_ORDER:
+                return $this->traversePostOrder($node);
+            case self::TRAVERSE_IN_ORDER:
+            default:
+                return $this->traverseInOrder($node);
+        }
+    }
+
+    private function traverseInOrder(Node $node, $output = []): array
     {
         if ($node->left) {
-            $output = $this->traverse($node->left, $output);
+            $output = $this->traverseInOrder($node->left, $output);
         }
 
         $output[] = $node->data;
 
         if ($node->right) {
-            $output = $this->traverse($node->right, $output);
+            $output = $this->traverseInOrder($node->right, $output);
         }
+
+        return $output;
+    }
+
+    private function traversePreOrder(Node $node, $output = []): array
+    {
+        $output[] = $node->data;
+
+        if ($node->left) {
+            $output = $this->traversePreOrder($node->left, $output);
+        }
+
+        if ($node->right) {
+            $output = $this->traversePreOrder($node->right, $output);
+        }
+
+        return $output;
+    }
+
+    private function traversePostOrder(Node $node, $output = []): array
+    {
+        if ($node->left) {
+            $output = $this->traversePostOrder($node->left, $output);
+        }
+
+        if ($node->right) {
+            $output = $this->traversePostOrder($node->right, $output);
+        }
+
+        $output[] = $node->data;
 
         return $output;
     }
