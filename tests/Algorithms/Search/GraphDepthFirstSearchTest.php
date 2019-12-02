@@ -2,7 +2,6 @@
 
 namespace App\Tests\Algorithms\Search;
 
-use App\Algorithms\Search\ExponentialSearch;
 use App\Algorithms\Search\GraphDepthFirstSearch;
 use PHPUnit\Framework\TestCase;
 

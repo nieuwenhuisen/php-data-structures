@@ -15,7 +15,7 @@ class BasicTree
 
     public function breadthFirstSearch(TreeNode $node): array
     {
-        $queue = new SplQueue;
+        $queue = new SplQueue();
         $output = [];
 
         $queue->enqueue($node);

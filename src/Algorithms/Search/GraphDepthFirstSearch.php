@@ -8,7 +8,7 @@ class GraphDepthFirstSearch
 {
     public static function search(array $graph, int $start): array
     {
-        $queue = new SplQueue;
+        $queue = new SplQueue();
         $path = [];
 
         $queue->enqueue($start);
@@ -18,7 +18,7 @@ class GraphDepthFirstSearch
             $node = $queue->dequeue();
             $path[] = $node;
             foreach ($graph[$node] as $key => $vertex) {
-                if (!isset($visited[$key]) && $vertex == 1) {
+                if (!isset($visited[$key]) && 1 === $vertex) {
                     $visited[$key] = 1;
                     $queue->enqueue($key);
                 }

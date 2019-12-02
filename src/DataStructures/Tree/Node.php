@@ -77,8 +77,11 @@ class Node
             }
         } elseif ($node->left && $node->right) {
             $successor = $node->successor();
-            $node->data = $successor->data;
-            $successor->delete();
+
+            if ($successor) {
+                $node->data = $successor->data;
+                $successor->delete();
+            }
         } elseif ($node->left) {
             if ($node->parent->left === $node) {
                 $node->parent->left = $node->left;

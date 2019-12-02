@@ -37,6 +37,7 @@ class BinarySearchTree
             if ($data > $node->data) {
                 if (!$node->right) {
                     $node->right = new Node($data, $node);
+
                     return $node->right;
                 }
 
@@ -44,6 +45,7 @@ class BinarySearchTree
             } elseif ($data < $node->data) {
                 if (!$node->left) {
                     $node->left = new Node($data, $node);
+
                     return $node->left;
                 }
 
@@ -58,8 +60,7 @@ class BinarySearchTree
 
     public function traverse(Node $node, $type = self::TRAVERSE_IN_ORDER): array
     {
-        switch ($type)
-        {
+        switch ($type) {
             case self::TRAVERSE_PRE_ORDER:
                 return $this->traversePreOrder($node);
             case self::TRAVERSE_POST_ORDER:
