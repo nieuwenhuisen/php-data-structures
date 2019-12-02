@@ -43,6 +43,7 @@ Some example and test code for PHP data structures and Algorithms.
 - Binary Search
 - Exponential Search
 - Interpolation Search
+- Graph Depth First Search
 
 #### Recursion
 **Example usage:**
