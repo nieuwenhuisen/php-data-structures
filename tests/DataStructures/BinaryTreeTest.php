@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\DataStructures;
 
 use App\DataStructures\Tree\BinaryNode;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Algorithms\Sort;
 
 class MergeSort
@@ -12,10 +14,10 @@ class MergeSort
             return $input;
         }
 
-        $mid = (int) $length / 2;
+        $mid = $length / 2;
 
-        $left = self::sort(\array_slice($input, 0, $mid));
-        $right = self::sort(\array_slice($input, $mid));
+        $left = self::sort(\array_slice($input, 0, (int)$mid));
+        $right = self::sort(\array_slice($input, (int)$mid));
 
         return self::merge($left, $right);
     }

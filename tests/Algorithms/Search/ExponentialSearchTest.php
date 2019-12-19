@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Algorithms\Search;
 
 use App\Algorithms\Search\ExponentialSearch;
