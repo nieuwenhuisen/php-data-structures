@@ -37,6 +37,7 @@ Some example and test code for PHP data structures and Algorithms.
 - Merge Sort
 - Quick Sort
 - Selection Sort
+- Topological sorting
 
 #### Searching
 - Linear Search
