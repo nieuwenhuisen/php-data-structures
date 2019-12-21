@@ -8,10 +8,8 @@ use SplQueue;
 
 class TopologicalSorting
 {
-    public static function sort(array $matrix): array
+    private static function createIncommingArray(array $matrix, SplQueue $queue): array
     {
-        $order = [];
-        $queue = new SplQueue();
         $size = \count($matrix);
         $incoming = array_fill(0, $size, 0);
 
@@ -25,6 +23,16 @@ class TopologicalSorting
                 $queue->enqueue($i);
             }
         }
+
+        return $incoming;
+    }
+
+    public static function sort(array $matrix): array
+    {
+        $queue = new SplQueue();
+        $order = [];
+        $size = \count($matrix);
+        $incoming = self::createIncommingArray($matrix, $queue);
 
         while (!$queue->isEmpty()) {
             $node = $queue->dequeue();

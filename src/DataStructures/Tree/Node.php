@@ -69,40 +69,36 @@ class Node
 
     public function delete(): void
     {
-        $node = $this;
-
-        if (!$node->left && !$node->right) {
-            if ($node->parent->left === $node) {
-                $node->parent->left = null;
-            } else {
-                $node->parent->right = null;
-            }
-        } elseif ($node->left && $node->right) {
-            $successor = $node->successor();
+        if ($this->left && $this->right) {
+            $successor = $this->successor();
 
             if ($successor) {
-                $node->data = $successor->data;
+                $this->data = $successor->data;
                 $successor->delete();
             }
-        } elseif ($node->left) {
-            if ($node->parent->left === $node) {
-                $node->parent->left = $node->left;
-                $node->left->parent = $node->parent->left;
-            } else {
-                $node->parent->right = $node->left;
-                $node->left->parent = $node->parent->right;
-            }
-            $node->left = null;
-        } elseif ($node->right) {
-            if ($node->parent->left === $node) {
-                $node->parent->left = $node->right;
-                $node->right->parent = $node->parent->left;
-            } else {
-                $node->parent->right = $node->right;
-                $node->right->parent = $node->parent->right;
-            }
 
-            $node->right = null;
+            return;
         }
+
+        $node = $this->left ?? $this->right;
+
+        if ($this->parent->left === $this) {
+            $this->parent->left = $node;
+
+            if ($node) {
+                $node->parent = $this->parent->left;
+            }
+        }
+
+        if ($this->parent->right === $this) {
+            $this->parent->right = $node;
+
+            if ($node) {
+                $node->parent = $this->parent->right;
+            }
+        }
+
+        $this->left = null;
+        $this->right = null;
     }
 }

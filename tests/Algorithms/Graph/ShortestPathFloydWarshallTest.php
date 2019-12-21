@@ -11,11 +11,11 @@ class ShortestPathFloydWarshallTest extends TestCase
 {
     public function testShortestPath(): void
     {
-        define('A', 0);
-        define('B', 1);
-        define('C', 2);
-        define('D', 3);
-        define('E', 4);
+        \define('A', 0);
+        \define('B', 1);
+        \define('C', 2);
+        \define('D', 3);
+        \define('E', 4);
 
         $graph = [
             A => [
@@ -23,35 +23,35 @@ class ShortestPathFloydWarshallTest extends TestCase
                 B => 10,
                 C => PHP_INT_MAX,
                 D => 5,
-                E => PHP_INT_MAX
+                E => PHP_INT_MAX,
             ],
             B => [
                 A => 10,
                 B => 0,
                 C => 5,
                 D => 5,
-                E => 10
+                E => 10,
             ],
             C => [
                 A => PHP_INT_MAX,
                 B => 5,
                 C => 0,
                 D => PHP_INT_MAX,
-                E => PHP_INT_MAX
+                E => PHP_INT_MAX,
             ],
             D => [
                 A => 5,
                 B => 5,
                 C => PHP_INT_MAX,
                 D => 0,
-                E => 20
+                E => 20,
             ],
             E => [
                 A => PHP_INT_MAX,
                 B => 10,
                 C => PHP_INT_MAX,
                 D => 20,
-                E => 0
+                E => 0,
             ],
         ];
 

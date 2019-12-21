@@ -16,8 +16,8 @@ class MergeSort
 
         $mid = $length / 2;
 
-        $left = self::sort(\array_slice($input, 0, (int)$mid));
-        $right = self::sort(\array_slice($input, (int)$mid));
+        $left = self::sort(\array_slice($input, 0, (int) $mid));
+        $right = self::sort(\array_slice($input, (int) $mid));
 
         return self::merge($left, $right);
     }
