@@ -6,22 +6,22 @@ namespace App\Algorithms\Graph;
 
 final class ShortestPathFloydWarshall
 {
-    public static function path(array $graph): array
+    public static function paths(array $graph): array
     {
-        $dist = $graph;
-        $size = count($dist);
+        $distance = $graph;
+        $size = count($distance);
 
         for ($k = 0; $k < $size; $k++) {
             for ($i = 0; $i < $size; $i++) {
                 for ($j = 0; $j < $size; $j++) {
-                    $dist[$i][$j] = min(
-                        $dist[$i][$j],
-                        $dist[$i][$k] + $dist[$k][$j]
+                    $distance[$i][$j] = min(
+                        $distance[$i][$j],
+                        $distance[$i][$k] + $distance[$k][$j]
                     );
                 }
             }
         }
 
-        return $dist;
+        return $distance;
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Algorithms\Graph;
 
 use App\Algorithms\Graph\ShortestPathFloydWarshall;
@@ -9,23 +11,53 @@ class ShortestPathFloydWarshallTest extends TestCase
 {
     public function testShortestPath(): void
     {
-        $totalVertices = 5;
-        $graph = [];
-        for ($i = 0; $i < $totalVertices; $i++) {
-            for ($j = 0; $j < $totalVertices; $j++) {
-                $graph[$i][$j] = $i === $j ? 0 : PHP_INT_MAX;
-            }
-        }
+        define('A', 0);
+        define('B', 1);
+        define('C', 2);
+        define('D', 3);
+        define('E', 4);
 
-        $graph[0][1] = $graph[1][0] = 10;
-        $graph[2][1] = $graph[1][2] = 5;
-        $graph[0][3] = $graph[3][0] = 5;
-        $graph[3][1] = $graph[1][3] = 5;
-        $graph[4][1] = $graph[1][4] = 10;
-        $graph[3][4] = $graph[4][3] = 20;
+        $graph = [
+            A => [
+                A => 0,
+                B => 10,
+                C => PHP_INT_MAX,
+                D => 5,
+                E => PHP_INT_MAX
+            ],
+            B => [
+                A => 10,
+                B => 0,
+                C => 5,
+                D => 5,
+                E => 10
+            ],
+            C => [
+                A => PHP_INT_MAX,
+                B => 5,
+                C => 0,
+                D => PHP_INT_MAX,
+                E => PHP_INT_MAX
+            ],
+            D => [
+                A => 5,
+                B => 5,
+                C => PHP_INT_MAX,
+                D => 0,
+                E => 20
+            ],
+            E => [
+                A => PHP_INT_MAX,
+                B => 10,
+                C => PHP_INT_MAX,
+                D => 20,
+                E => 0
+            ],
+        ];
 
-        $path = ShortestPathFloydWarshall::path($graph);
-        dump($path);
-        exit;
+        $shortestPaths = ShortestPathFloydWarshall::paths($graph);
+
+        $this->assertSame(20, $shortestPaths[A][E], 'Shortest distance between A to E is not 20');
+        $this->assertSame(10, $shortestPaths[D][C], 'Shortest distance between D to C is not 10');
     }
 }
