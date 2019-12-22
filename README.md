@@ -52,6 +52,13 @@ Some example and test code for PHP data structures and Algorithms.
 - Fibonacci
 - Greatest common division
 
+#### Graph
+- Kruskal's minimum spanning tree
+- Prim's minimum spanning tree
+- Bellman Ford shortest path
+- Dijkstra's shortest path
+- Floyd Warshall's shortest path
+
 ---
  
 
