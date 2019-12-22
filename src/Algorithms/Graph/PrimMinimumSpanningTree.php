@@ -8,59 +8,54 @@ final class PrimMinimumSpanningTree
 {
     public static function minimumTree(array $graph): array
     {
-        $parent = [];   // Array to store the MST
-        $key = [];      // used to pick minimum weight edge
-        $visited = [];  // set of vertices not yet included in MST
+        $parent = [-1];
         $length = \count($graph);
 
-        // Initialize all keys as MAX
-        for ($i = 0; $i < $length; ++$i) {
-            $key[$i] = PHP_INT_MAX;
-            $visited[$i] = false;
-        }
+        $keys = array_fill(0, $length, PHP_INT_MAX);
+        $visited = array_fill(0, $length, false);
 
-        $key[0] = 0;
-        $parent[0] = -1;
+        $keys[0] = 0;
 
-        // The minimum spanning tree will have V vertices
         for ($count = 0; $count < $length - 1; ++$count) {
-            // Pick the minimum key vertex
             $minValue = PHP_INT_MAX;
             $minIndex = -1;
 
             foreach (array_keys($graph) as $vertex) {
-                if (false === $visited[$vertex] && $key[$vertex] < $minValue) {
-                    $minValue = $key[$vertex];
+                if (false === $visited[$vertex] && $keys[$vertex] < $minValue) {
+                    $minValue = $keys[$vertex];
                     $minIndex = $vertex;
                 }
             }
 
             $u = $minIndex;
 
-            // Add the picked vertex to the MST Set
             $visited[$u] = true;
 
             for ($vertex = 0; $vertex < $length; ++$vertex) {
                 if (0 !== $graph[$u][$vertex] && false === $visited[$vertex] &&
-                    $graph[$u][$vertex] < $key[$vertex]) {
+                    $graph[$u][$vertex] < $keys[$vertex]) {
                     $parent[$vertex] = $u;
-                    $key[$vertex] = $graph[$u][$vertex];
+                    $keys[$vertex] = $graph[$u][$vertex];
                 }
             }
         }
 
-        $minimumCost = 0;
-        $edges = [];
+        return self::tree($graph, $parent);
+    }
 
-        for ($i = 1; $i < $length; ++$i) {
+    private static function tree(array $graph, array $parent): array
+    {
+        $tree = [];
+
+        foreach (array_keys($graph) as $i) {
+            if (0 === $i) {
+                continue;
+            }
+
             $cost = $graph[$i][$parent[$i]];
-            $minimumCost += $cost;
-            $edges[] = ['source' => $parent[$i], 'destination' => $i, 'cost' => $cost];
+            $tree[] = ['from' => $parent[$i], 'to' => $i, 'cost' => $cost];
         }
 
-        return [
-            'minimum_cost' => $minimumCost,
-            'edges' => $edges,
-        ];
+        return $tree;
     }
 }
