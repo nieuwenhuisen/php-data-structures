@@ -24,6 +24,9 @@ Some example and test code for PHP data structures and Algorithms.
 - Basic Tree
 - Binary Tree
 
+#### Heap's
+- Min heap
+
 **Example usage:**
 - Expression checker
 
