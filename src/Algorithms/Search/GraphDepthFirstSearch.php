@@ -12,6 +12,7 @@ class GraphDepthFirstSearch
     {
         $queue = new SplQueue();
         $path = [];
+        $visited = [];
 
         $queue->enqueue($start);
         $visited[$start] = 1;
