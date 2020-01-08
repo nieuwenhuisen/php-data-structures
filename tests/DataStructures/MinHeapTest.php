@@ -19,5 +19,15 @@ final class MinHeapTest extends TestCase
             [9, 26, 37, 34, 44, 86, 129, 83, 65],
             $minHeap->getHeap()
         );
+
+        $this->assertSame(9, $minHeap->extractMin());
+        $this->assertSame(26, $minHeap->extractMin());
+        $this->assertSame(34, $minHeap->extractMin());
+        $this->assertSame(37, $minHeap->extractMin());
+        $this->assertSame(44, $minHeap->extractMin());
+        $this->assertSame(65, $minHeap->extractMin());
+        $this->assertSame(83, $minHeap->extractMin());
+        $this->assertSame(86, $minHeap->extractMin());
+        $this->assertSame(129, $minHeap->extractMin());
     }
 }
