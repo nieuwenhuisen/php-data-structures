@@ -15,6 +15,11 @@ final class HeapPriorityQueueTest extends TestCase
         $queue = new HeapPriorityQueue(\count($numbers));
         $queue->create($numbers);
 
+        $this->assertSame(
+            [129, 86, 44, 83, 26, 34, 37, 65, 9],
+            $queue->getHeap()
+        );
+
         $this->assertSame(129, $queue->dequeue());
         $this->assertSame(86, $queue->dequeue());
         $this->assertSame(83, $queue->dequeue());
