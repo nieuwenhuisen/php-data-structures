@@ -8,8 +8,8 @@ final class PatternMatching
 {
     public static function findAll(string $pattern, string $text): array
     {
-        $patternLength = \mb_strlen($pattern);
-        $textLength = \mb_strlen($text);
+        $patternLength = mb_strlen($pattern);
+        $textLength = mb_strlen($text);
         $positions = [];
 
         for ($i = 0; $i <= $textLength - $patternLength; ++$i) {
