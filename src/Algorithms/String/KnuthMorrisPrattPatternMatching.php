@@ -10,7 +10,7 @@ final class KnuthMorrisPrattPatternMatching
     {
         $length = 0;
         $i = 1;
-        $patternLength = \mb_strlen($pattern);
+        $patternLength = mb_strlen($pattern);
 
         $lps[0] = 0;
 
@@ -31,8 +31,8 @@ final class KnuthMorrisPrattPatternMatching
     public static function stringMatching(string $pattern, string $text): array
     {
         $matches = [];
-        $patternLength = \mb_strlen($pattern);
-        $textLength = \mb_strlen($text);
+        $patternLength = mb_strlen($pattern);
+        $textLength = mb_strlen($text);
         $i = $j = 0;
         $lps = [];
 
