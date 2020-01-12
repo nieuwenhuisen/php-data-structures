@@ -6,7 +6,7 @@ namespace App\Algorithms\String;
 
 final class KnuthMorrisPrattPatternMatching
 {
-    private static function computeLPS(string $pattern, array &$lps)
+    private static function computeLPS(string $pattern, array &$lps): void
     {
         $length = 0;
         $i = 1;
