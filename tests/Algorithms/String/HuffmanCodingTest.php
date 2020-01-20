@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Tests\Algorithms\String;
 
@@ -10,7 +12,7 @@ final class HuffmanCodingTest extends TestCase
     public function testEncode()
     {
         $txt = 'PHP 7 Data structures and Algorithms';
-        $symbols = array_count_values(str_split($txt));
+        $symbols = array_count_values(mb_str_split($txt));
 
         $result = HuffmanCoding::encode($symbols);
 

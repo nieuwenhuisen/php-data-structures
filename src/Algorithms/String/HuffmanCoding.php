@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Algorithms\String;
 
@@ -8,7 +10,7 @@ final class HuffmanCoding
 {
     public static function encode(array $symbols): array
     {
-        $heap = new SplPriorityQueue;
+        $heap = new SplPriorityQueue();
         $heap->setExtractFlags(SplPriorityQueue::EXTR_BOTH);
 
         foreach ($symbols as $symbol => $weight) {
@@ -20,11 +22,11 @@ final class HuffmanCoding
             $high = $heap->extract();
 
             foreach ($low['data'] as &$x) {
-                $x = '0' . $x;
+                $x = '0'.$x;
             }
 
             foreach ($high['data'] as &$x) {
-                $x = '1' . $x;
+                $x = '1'.$x;
             }
 
             $heap->insert($low['data'] + $high['data'],
@@ -32,6 +34,7 @@ final class HuffmanCoding
         }
 
         $result = $heap->extract();
+
         return $result['data'];
     }
 }
